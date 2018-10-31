@@ -34,7 +34,7 @@ if($_POST)
 
 //main if ka else.
 else{
-	echo "not post";
+	echo "DATA IS NOT POST";
 }
 
 ?>

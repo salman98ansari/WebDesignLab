@@ -30,8 +30,31 @@
     </header>
 <body>
 <?php 
-        if($_POST) 
-            insertUser();   
+    require_once 'php/functions.php';
+        if($_POST) {
+            $username = $_POST('user');
+            $name = $_POST('name');
+            $mobile = $_POST('mobile');
+            $email = $_POST('email');
+            $rollno = $_POST('rollno');
+            $pass =$_POST('pass');
+            if(!empty($rollno)&&!empty($name)&&!empty($email)&&!empty($mobile)&&!empty($user)&&!empty($pass)){
+                $link=mysqli_connect('localhost','root','root','aiktc');
+                if(!$link){
+                    echo '<br>Unable to connect to Database.'
+                    .mysqli_connect_error();
+                }
+                $query="Insert into users values('$username','$name','$mobile','$email','$rollno','$pass')";
+                 $result=mysqli_query($link,$query);
+                if(!$result){
+                    echo "<br>".mysqli_error($link);
+                }
+                else{
+                    echo '<br><h4>Your data is successfully Inserted.</h4>';
+                }
+            }
+        }
+    
 ?>
 <div class="container">
     

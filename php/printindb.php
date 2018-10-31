@@ -37,6 +37,7 @@ if($_POST)
         if(!$link){
             echo '<br>Unable to connect to Database.'
             .mysqli_connect_error();
+            die('i am exiting');
         }
         $query="Insert into students values ('$rollno','$name','$gender',"
                 . "'$address','$dob',"
